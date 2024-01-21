@@ -105,7 +105,6 @@ public class UserController {
         customerDTO.setId(customer.getId());
         List<Long> petids = new ArrayList<>();
         for(Pet pet : customer.getPets()){
-            System.out.println("pet.getId()" + pet.getId());
             petids.add(pet.getId());
         }
         customerDTO.setPetIds(petids);
