@@ -1,8 +1,8 @@
-package com.udacity.jdnd.course3.critter.user;
+package com.udacity.jdnd.course3.critter.entities;
 
 /**
  * A example list of employee skills that could be included on an employee or a schedule request.
  */
-public enum EmployeeSkill {
+public enum EmployeeSkillType {
     PETTING, WALKING, FEEDING, MEDICATING, SHAVING;
 }
