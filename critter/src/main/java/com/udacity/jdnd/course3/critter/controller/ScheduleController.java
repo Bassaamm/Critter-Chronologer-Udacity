@@ -1,15 +1,12 @@
 package com.udacity.jdnd.course3.critter.controller;
 
 import com.udacity.jdnd.course3.critter.dtos.ScheduleDTO;
-import com.udacity.jdnd.course3.critter.entities.Customer;
 import com.udacity.jdnd.course3.critter.entities.Employee;
 import com.udacity.jdnd.course3.critter.entities.Pet;
 import com.udacity.jdnd.course3.critter.entities.Schedule;
 import com.udacity.jdnd.course3.critter.service.PetService;
 import com.udacity.jdnd.course3.critter.service.ScheduleService;
 import com.udacity.jdnd.course3.critter.service.UserService;
-import org.h2.engine.User;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,13 +22,11 @@ import java.util.stream.Collectors;
 public class ScheduleController {
 
     private ScheduleService scheduleService;
-    private ModelMapper modelMapper;
     private UserService userService;
     private PetService petService;
 
     public ScheduleController(ScheduleService scheduleService, UserService userService, PetService petService) {
         this.scheduleService = scheduleService;
-        this.modelMapper = new ModelMapper();
         this.userService = userService;
         this.petService = petService;
     }
@@ -142,7 +137,6 @@ public class ScheduleController {
         for (Long id : petsId) {
             pets.add(petService.getPetByPetId(id));
         }
-        System.out.println("pets.size() = " + pets.size());
         return pets;
     }
 
@@ -151,7 +145,6 @@ public class ScheduleController {
         for (Long id : employeesId) {
             employees.add(this.userService.getEmployeeById(id));
         }
-        System.out.println("employees.size() = " + employees.size());
         return employees;
     }
 

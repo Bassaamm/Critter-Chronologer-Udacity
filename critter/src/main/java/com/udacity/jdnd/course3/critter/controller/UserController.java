@@ -8,8 +8,6 @@ import com.udacity.jdnd.course3.critter.entities.Employee;
 import com.udacity.jdnd.course3.critter.entities.Pet;
 import com.udacity.jdnd.course3.critter.service.PetService;
 import com.udacity.jdnd.course3.critter.service.UserService;
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.DayOfWeek;
@@ -28,12 +26,10 @@ public class UserController {
 
     private UserService userService;
     private PetService petService;
-    private ModelMapper modelMapper;
 
     public UserController(UserService userService, PetService petService) {
         this.userService = userService;
         this.petService = petService;
-        this.modelMapper = new ModelMapper();
     }
 
     @PostMapping("/customer")

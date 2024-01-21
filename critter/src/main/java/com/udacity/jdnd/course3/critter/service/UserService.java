@@ -12,25 +12,23 @@ import lombok.SneakyThrows;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.*;
 
 @Service
+@Transactional
 public class UserService {
 
     private EmployeeRepository employeeRepository;
     private CustomerRepository customerRepository;
-    private PetRepository petRepository;
-    private ModelMapper modelMapper;
 
 
 
-    public UserService( EmployeeRepository employeeRepository, CustomerRepository customerRepository, PetRepository petRepository) {
+    public UserService( EmployeeRepository employeeRepository, CustomerRepository customerRepository) {
         this.employeeRepository = employeeRepository;
         this.customerRepository = customerRepository;
-        this.petRepository = petRepository;
-        this.modelMapper = new ModelMapper();
     }
 
 

@@ -4,9 +4,11 @@ import com.udacity.jdnd.course3.critter.entities.Schedule;
 import com.udacity.jdnd.course3.critter.repository.SchduleRepository;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class ScheduleService {
 
     private SchduleRepository schduleRepository;

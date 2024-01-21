@@ -6,10 +6,12 @@ import com.udacity.jdnd.course3.critter.repository.PetRepository;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class PetService {
 
     private PetRepository petRepository;

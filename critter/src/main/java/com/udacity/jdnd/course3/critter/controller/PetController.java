@@ -6,7 +6,6 @@ import com.udacity.jdnd.course3.critter.entities.Pet;
 import com.udacity.jdnd.course3.critter.service.PetService;
 import com.udacity.jdnd.course3.critter.service.UserService;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -20,12 +19,10 @@ import java.util.List;
 public class PetController {
 
     private PetService petService;
-    private ModelMapper modelMapper;
     private UserService customerService;
 
     public PetController(PetService petService, UserService customerService) {
         this.petService = petService;
-        this.modelMapper =  new ModelMapper();
         this.customerService = customerService;
     }
 
@@ -68,22 +65,6 @@ public class PetController {
            petDTOs.add(convertToDTO(p));
         }
         return petDTOs ;
-    }
-
-    private Pet convertToPet(PetDTO petDTO) {
-        Pet pet = new Pet();
-        pet.setId(petDTO.getId());
-        pet.setBirthDate(petDTO.getBirthDate());
-        pet.setName(petDTO.getName());
-        pet.setNotes(petDTO.getNotes());
-        pet.setType(petDTO.getType());
-
-        if(petDTO.getOwnerId() != 0){
-            Customer customer = this.customerService.findOwnerByhisPetId(petDTO.getOwnerId());
-            pet.setCustomer(customer);
-        }
-
-        return pet;
     }
 
     public PetDTO convertToDTO(Pet pet){
